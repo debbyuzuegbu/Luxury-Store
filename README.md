@@ -1,4 +1,4 @@
-# Buy-It
+# Luxury-Store
 
 ## Project setup
 
