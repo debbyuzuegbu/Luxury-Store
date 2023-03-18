@@ -6,7 +6,7 @@
             <product-card
                 v-for="(product, id) in featuredProducts"
                 :key="id"
-                :productId="product._id"
+                :productId="product.id"
                 :productName="product.title"
                 :brand="product.brand"
                 :price="product.price"

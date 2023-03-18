@@ -105,7 +105,6 @@ export default {
       axios
         .get(`https://dummyjson.com/products?page=${this.page}`)
         .then((res) => {
-            console.log(res.data.products)
           this.products = res.data.products.map((product) => {
             product.images[0] = product.images[0].replace("http", "https");
             return product;
