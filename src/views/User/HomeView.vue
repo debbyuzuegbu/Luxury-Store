@@ -22,7 +22,6 @@
 
   <banner-section />
   <new-arrivals :newArrivals="newArrivals" />
-  <news-letter />
   <main-footer />
 </template>
 
@@ -33,7 +32,6 @@ import NewArrivals from "@/components/home_components/products/NewArrivals.vue";
 import FeaturedProducts from "@/components/home_components/products/FeaturedProducts.vue";
 import ActionButton from "@/components/ActionButton.vue";
 import MainHeader from "@/components/MainHeader.vue";
-import NewsLetter from "@/components/NewsLetter.vue";
 import MainFooter from "@/components/MainFooter.vue";
 
 import axios from "axios";
@@ -56,7 +54,6 @@ export default {
     FeaturedProducts,
     ActionButton,
     MainHeader,
-    NewsLetter,
     MainFooter,
   },
   computed: {
