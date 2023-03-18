@@ -95,7 +95,7 @@ export default {
   align-items: center;
   justify-content: center;
   height: calc(100vh - 65px);
-  background-image: url("@/assets/images/hero4.webp");
+  background-image: url("https://i.dummyjson.com/data/products/1/3.jpg");
   background-position: 60% 30%;
   background-size: cover;
 }
