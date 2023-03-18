@@ -108,7 +108,6 @@ export default {
     };
   },
   methods: {
-
     login(){
         this.$store.dispatch('login')
         setTimeout(() => {

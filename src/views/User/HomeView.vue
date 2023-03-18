@@ -1,5 +1,5 @@
 <template>
-  <main-header v-if="isAuth" />
+  <main-header />
   <section class="hero__section">
     <div class="container">
       <div class="hero__text">
