@@ -16,7 +16,7 @@
         </svg>
       </router-link>
       <h3>Luxury-Store</h3>
-      <form @submit.prevent="loginUser">
+      <form @submit.prevent="login">
         <input
           type="email"
           value="friend@gmail.com"
@@ -75,9 +75,9 @@
         </div>
 
         <action-button>
-          <button-preloader v-if="userLoggedIn" />
+          <button-preloader v-if="!isAuth" />
           <span v-else>Login</span>
-        </action-button>
+        </action-button>isAuth
         <router-link class="link" to="/forgot-password"
           >Forgot Password?</router-link
         >
@@ -108,6 +108,16 @@ export default {
     };
   },
   methods: {
+
+    login(){
+        this.$store.dispatch('login')
+        setTimeout(() => {
+            this.$router.replace("/home");
+        }, 1000);
+    }, 
+    logout(){
+        this.$store.dispatch('logout')
+    },
     ...mapActions(["set_user"]),
     togglePassword() {
       this.showPassword = !this.showPassword;
@@ -119,6 +129,11 @@ export default {
         }, 1000);
       }
   },
+  computed: {
+    isAuth() {
+        return this.$store.getters.userIsAuthenticated;
+    }
+  }
 };
 </script>
 

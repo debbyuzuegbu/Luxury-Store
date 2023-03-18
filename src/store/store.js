@@ -8,18 +8,22 @@ const store = createStore({
           products: [],
           cart: [],
           singleProduct: {},
-          isLogged: false || !!checkLogin,
+          isLoggedIn: false || !!checkLogin,
         };
       },
   mutations: {
-    loginUser(state) {
-        state.isLogged = true;
-        localStorage.setItem("auth", "isAuthenticated");
-      },
-      logoutUser(state) {
-        state.isLogged = false;
-        localStorage.removeItem("auth");
-      },
+    // loginUser(state, payload) {
+    //     state.isLogged = true;
+    //     localStorage.setItem("auth", "isAuthenticated");
+    //   },
+    //   logoutUser(state) {
+    //     state.isLogged = false;
+    //     localStorage.removeItem("auth");
+    //   },
+
+    setAuth (state, payload) {
+        state.isLoggedIn = payload.isAuth;
+    },
     addToCart(state, payload) {
       if (state.cart.length != 0) {
         //check if the item is in the cart
@@ -70,6 +74,12 @@ const store = createStore({
     },
   },
   actions: {
+    login(context) {
+        context.commit('setAuth', {isAuth: true})
+    },
+    logout(context){
+        context.commit('setAuth', {isAuth: false})
+    },
     async getProduct({ commit }) {
       const res = await fetch("https://dummyjson.com/products");
       const data = await res.json();
@@ -99,6 +109,9 @@ const store = createStore({
     },
   },
   getters: {
+    userIsAuthenticated(state) {
+        return state.isLoggedIn
+    },
     getProduct(state) {
       return state.products;
     },

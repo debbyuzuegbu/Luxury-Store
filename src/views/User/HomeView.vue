@@ -1,5 +1,5 @@
 <template>
-  <main-header />
+  <main-header v-if="isAuth" />
   <section class="hero__section">
     <div class="container">
       <div class="hero__text">
@@ -63,6 +63,9 @@ export default {
     MainFooter,
   },
   computed: {
+    isAuth() {
+      return this.$store.getters.userIsAuthenticated;
+    },
     getProducts() {
       return this.$store.getters.getProduct;
     },
