@@ -11,7 +11,7 @@
     </div>
     <p class="product__name">{{ productName }}</p>
     <div class="price">
-      <span>{{ formattedPrice }}</span>
+      <span>NGN{{ price }}</span>
 
       <button
         class="cart"

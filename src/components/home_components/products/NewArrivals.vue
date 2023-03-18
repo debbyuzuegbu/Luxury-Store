@@ -11,7 +11,6 @@
           :productName="product.title"
           :brand="product.brand"
           :price="product.price"
-          :currency="NGN"
           :image_url="product.thumbnail"
           :in_stock="product.stock"
         />

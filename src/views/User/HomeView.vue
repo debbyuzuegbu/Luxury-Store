@@ -73,6 +73,7 @@ export default {
   async created() {
     let res1 = await axios.get("https://dummyjson.com/products");
     this.products = res1.data.products.map((product) => {
+      console.log(product)
       product.images[0] = product.images[0].replace("http", "https");
       return product;
     });
