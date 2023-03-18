@@ -13,9 +13,6 @@
             }}</span>
         </div>
         <p class="product__name">{{ productName }}</p>
-        <div class="rating">
-            <i v-for="rating in ratings" :key="rating" class="fas fa-star"></i>
-        </div>
         <div class="price">
             <span>{{ formattedPrice }}</span>
 
@@ -50,15 +47,11 @@ export default {
         "brand",
         "productName",
         "price",
-        "currency",
-        "ratings",
+        // "currency",
         "in_stock",
     ],
-    computed: {
-        formattedPrice() {
-            return this.currency + " " + this.price.toFixed(2);
-        },
-    },
+   
+    
 };
 </script>
 

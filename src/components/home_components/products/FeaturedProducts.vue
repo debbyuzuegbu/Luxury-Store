@@ -4,16 +4,15 @@
         <p class="highlight">The best selling products we have on sale.</p>
         <div class="product__container" v-if="featuredProducts">
             <product-card
-                v-for="(product, index) in featuredProducts"
-                :key="index"
+                v-for="(product, id) in featuredProducts"
+                :key="id"
                 :productId="product._id"
-                :productName="product.name"
+                :productName="product.title"
                 :brand="product.brand"
                 :price="product.price"
-                :currency="product.currency"
-                :ratings="product.rating"
-                :image_url="product.images[0]"
-                :in_stock="product.in_stock"
+                :currency="NGN"
+                :image_url="product.thumbnail"
+                :in_stock="product.stock"
             />
         </div>
         <product-preloader type="inline" v-else>

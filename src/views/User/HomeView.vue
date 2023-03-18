@@ -71,10 +71,9 @@ export default {
     },
   },
   async created() {
-    let res1 = await axios.get("https://gorana.onrender.com/products");
-    this.products = res1.data.results.map((product) => {
+    let res1 = await axios.get("https://dummyjson.com/products");
+    this.products = res1.data.products.map((product) => {
       product.images[0] = product.images[0].replace("http", "https");
-      console.log(product);
       return product;
     });
     this.set_products(this.products);
@@ -89,7 +88,7 @@ export default {
   align-items: center;
   justify-content: center;
   height: calc(100vh - 65px);
-  background-image: url("https://i.dummyjson.com/data/products/1/3.jpg");
+  background-image: url("http://localhost:8080/img/hero4.1553d348.webp");
   background-position: 60% 30%;
   background-size: cover;
 }
