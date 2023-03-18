@@ -3,7 +3,7 @@
         <div class="container">
             <nav class="top__navigation">
                 <router-link to="/home">
-                    <h3 class="logo">Luxury-Story</h3>
+                    <h3 class="logo">Luxury-Store</h3>
                 </router-link>
 
                 <div class="nav__links" :class="{ activeNav: showSideNav }">
