@@ -165,7 +165,7 @@
                 <div class="checkbox">
                     <input type="checkbox" id="checkbox2" />
                     <label for="checkbox2" class="check-text">
-                        I want to receive Buy-it Newsletters with the best deals
+                        I want to receive Luxury-Store Newsletters with the best deals
                         and offers
                     </label>
                 </div>
@@ -183,19 +183,7 @@
                         <button-preloader v-if="userCreated" />
                         <span v-else>CREATE ACCOUNT</span>
                     </action-button>
-                    <!-- <div class="or">
-                        <hr />
-                        <span>OR</span>
-                        <hr />
-                    </div> -->
-                    <!-- <router-link to="/"
-                        ><action-button
-                            class="gmail-btn"
-                            btnvalue="REGISTER WITH GMAIL"
-                            ><img
-                                src="@/assets/images/google-icon.png"
-                                class="gmail-icon" /></action-button
-                    ></router-link> -->
+
                 </div>
                 <div class="form-footer">
                     <p>Already have an account?</p>
