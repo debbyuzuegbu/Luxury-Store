@@ -20,7 +20,7 @@ export default {
 .banner {
     text-align: center;
     min-height: 25vh;
-    background-image: url("@/assets/images/banner/b2.webp");
+    background-color: var(--dim-blue);
     background-size: cover;
     color: white;
     display: grid;

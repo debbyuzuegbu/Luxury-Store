@@ -22,7 +22,6 @@
 
   <banner-section />
   <new-arrivals :newArrivals="newArrivals" />
-  <advert-section />
   <news-letter />
   <main-footer />
 </template>
@@ -31,7 +30,6 @@
 import ServiceSection from "@/components/home_components/ServiceSection.vue";
 import BannerSection from "@/components/home_components/BannerSection.vue";
 import NewArrivals from "@/components/home_components/products/NewArrivals.vue";
-import AdvertSection from "@/components/home_components/AdvertSection.vue";
 import FeaturedProducts from "@/components/home_components/products/FeaturedProducts.vue";
 import ActionButton from "@/components/ActionButton.vue";
 import MainHeader from "@/components/MainHeader.vue";
@@ -55,7 +53,6 @@ export default {
     ServiceSection,
     BannerSection,
     NewArrivals,
-    AdvertSection,
     FeaturedProducts,
     ActionButton,
     MainHeader,
