@@ -1,8 +1,8 @@
 <template>
     <main-header />
     <sub-header
-        heading="#cart"
-        subHeading="Add your coupon code and save up to 70% on all purchases!"
+        heading="Cart"
+        subHeading="Add your coupon code and save up to 50% on all purchases!"
     />
     <section class="cart-section">
         <div class="container">
