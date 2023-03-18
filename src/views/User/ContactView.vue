@@ -1,7 +1,7 @@
 <template>
     <main-header />
     <sub-header
-        heading="#stayintouch"
+        heading="Contact Us"
         subHeading="With our 24/7 hotlines we will attend to you."
     />
     <div class="container">
