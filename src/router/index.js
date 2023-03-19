@@ -3,6 +3,10 @@ import store from "@/store/store";
 import HomeView from "../views/User/HomeView.vue";
 const routes = [
   {
+    path: "/",
+    redirect: "/login",
+  },
+  {
     path: "/home",
     name: "home",
     component: HomeView,
