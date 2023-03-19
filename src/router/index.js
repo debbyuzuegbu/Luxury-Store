@@ -3,11 +3,6 @@ import store from "@/store/store";
 import HomeView from "../views/User/HomeView.vue";
 const routes = [
   {
-    path: "/",
-    redirect: "/login"
-  },
-
-  {
     path: "/home",
     name: "home",
     component: HomeView,
@@ -21,7 +16,6 @@ const routes = [
     path: "/signup",
     name: "signup",
     component: () => import("../views/UserRegistration/SignupBox.vue"),
-   
   },
   {
     path: "/forgot-password",
@@ -51,7 +45,6 @@ const routes = [
     path: "/contact",
     name: "contact",
     component: () => import("../views/User/ContactView.vue"),
-   
   },
   {
     path: "/cart",
@@ -63,7 +56,8 @@ const routes = [
     name: "checkout",
     component: () => import("../views/User/CheckoutView.vue"),
     beforeEnter: (to, from, next) => {
-      if (store.state.user) {
+      console.log(store);
+      if (store.state.isLoggedIn === true) {
         next();
       } else {
         next("/login");
@@ -121,6 +115,10 @@ const router = createRouter({
     }
   },
 });
-
+router.beforeEach(async (to, from) => {
+  if (store.state.isLoggedIn === false && to.name !== "login") {
+    return { name: "login" };
+  }
+});
 
 export default router;

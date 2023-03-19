@@ -3,14 +3,14 @@ import createPersistedState from "vuex-persistedstate";
 const checkLogin = localStorage.getItem("auth");
 
 const store = createStore({
-    state() {
-        return {
-          products: [],
-          cart: [],
-          singleProduct: {},
-          isLoggedIn: false || !!checkLogin,
-        };
-      },
+  state() {
+    return {
+      products: [],
+      cart: [],
+      singleProduct: {},
+      isLoggedIn: false, //|| !!checkLogin,
+    };
+  },
   mutations: {
     // loginUser(state, payload) {
     //     state.isLogged = true;
@@ -21,8 +21,13 @@ const store = createStore({
     //     localStorage.removeItem("auth");
     //   },
 
-    setAuth (state, payload) {
-        state.isLoggedIn = payload.isAuth;
+    setAuth(state, payload) {
+      console.log(payload);
+      state.isLoggedIn = payload.isAuth;
+    },
+    singleProduct(state, data) {
+      state.singleProduct = data;
+      state.isLoading = false;
     },
     addToCart(state, payload) {
       if (state.cart.length != 0) {
@@ -72,18 +77,28 @@ const store = createStore({
     setProducts(state, payload) {
       state.products = payload;
     },
+    isLoading(state) {
+      state.isLoading = true;
+    },
   },
   actions: {
     login(context) {
-        context.commit('setAuth', {isAuth: true})
+      context.commit("setAuth", { isAuth: true });
     },
-    logout(context){
-        context.commit('setAuth', {isAuth: false})
+    logout(context) {
+      console.log("debby");
+      context.commit("setAuth", { isAuth: false });
     },
     async getProduct({ commit }) {
       const res = await fetch("https://dummyjson.com/products");
       const data = await res.json();
       commit("products", data.products);
+    },
+    async getSingleProduct({ commit }, id) {
+      commit("isLoading");
+      const res = await fetch(`https://dummyjson.com/products/${id}`);
+      const product = await res.json();
+      commit("singleProduct", product);
     },
 
     set_user(context, payload) {
@@ -110,10 +125,13 @@ const store = createStore({
   },
   getters: {
     userIsAuthenticated(state) {
-        return state.isLoggedIn
+      return state.isLoggedIn;
     },
     getProduct(state) {
       return state.products;
+    },
+    getSingleProduct(state) {
+      return state.singleProduct;
     },
     subtotal: (state) => {
       let subtotal = 0;

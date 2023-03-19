@@ -40,6 +40,8 @@ import { mapActions } from "vuex";
 export default {
   name: "HomeView",
   data() {
+    console.log(this.$store.state.isLoggedIn)
+    console.log(this.$store.getters.userIsAuthenticated)
     return {
       products: [],
     };
@@ -57,9 +59,6 @@ export default {
     MainFooter,
   },
   computed: {
-    isAuth() {
-      return this.$store.getters.userIsAuthenticated;
-    },
     getProducts() {
       return this.$store.getters.getProduct;
     },
@@ -73,7 +72,6 @@ export default {
   async created() {
     let res1 = await axios.get("https://dummyjson.com/products");
     this.products = res1.data.products.map((product) => {
-      console.log(product)
       product.images[0] = product.images[0].replace("http", "https");
       return product;
     });
@@ -89,7 +87,7 @@ export default {
   align-items: center;
   justify-content: center;
   height: calc(100vh - 65px);
-  background-image: url("http://localhost:8080/img/hero4.1553d348.webp");
+  background-image: url("https://i.pinimg.com/564x/5b/02/35/5b0235c99a1447c8709910996fb36819.jpg");
   background-position: 60% 30%;
   background-size: cover;
 }

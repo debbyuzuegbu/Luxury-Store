@@ -75,9 +75,8 @@
         </div>
 
         <action-button>
-          <button-preloader v-if="!isAuth" />
-          <span v-else>Login</span>
-        </action-button>isAuth
+          <span>Login</span>
+        </action-button>
         <router-link class="link" to="/forgot-password"
           >Forgot Password?</router-link
         >
@@ -99,10 +98,11 @@ export default {
   components: { ActionButton, ButtonPreloader },
   name: "LoginBox",
   data() {
+    console.log(this.$store.getters.userIsAuthenticated)
+    console.log(this.$store.state.isLoggedIn)
     return {
       email: "",
       password: "",
-      userLoggedIn: false,
       showPassword: false,
       loginError: "",
     };
@@ -121,18 +121,7 @@ export default {
     togglePassword() {
       this.showPassword = !this.showPassword;
     },
-    loginUser() {
-        // Simulate login with delay of 1 second
-        setTimeout(() => {
-            this.$router.replace("/home");
-        }, 1000);
-      }
   },
-  computed: {
-    isAuth() {
-        return this.$store.getters.userIsAuthenticated;
-    }
-  }
 };
 </script>
 

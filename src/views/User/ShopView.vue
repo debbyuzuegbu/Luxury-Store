@@ -89,6 +89,7 @@ export default {
     "product-preloader": ProductPreloader,
   },
   data() {
+    console.log(this.$store.state.isLoggedIn)
     return {
       products: [],
       page: 1,

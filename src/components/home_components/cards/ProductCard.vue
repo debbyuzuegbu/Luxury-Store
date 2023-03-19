@@ -16,6 +16,7 @@
       <button
         class="cart"
         @click="$router.push('/cart/' + productId)"
+       
         aria-label="View Item"
       >
         <svg
@@ -49,6 +50,7 @@ export default {
     "in_stock",
   ],
 };
+
 </script>
 
 <style scoped>
