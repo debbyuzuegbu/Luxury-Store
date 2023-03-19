@@ -1,122 +1,122 @@
 <template>
   <main-header />
   <sub-header
-    heading="Checkout"
-    subHeading="Complete your order by filling the form below"
+      heading="Checkout"
+      subHeading="Complete your order by filling the form below"
   />
   <section>
-    <div class="container">
-      <div class="coupon">
-        <input type="text" placeholder="Enter your coupon code" />
-        <action-button>Apply</action-button>
-      </div>
-      <form class="billing-info" @submit.prevent="placeOrder">
-        <div class="form">
-          <h4>Billing Address</h4>
-          <div class="form-group">
-            <div class="form-control">
-              <label>First Name *</label>
-              <input type="text" required />
-            </div>
-            <div class="form-control">
-              <label>Last Name *</label>
-              <input type="text" required />
-            </div>
+      <div class="container">
+          <div class="coupon">
+              <input type="text" placeholder="Enter your coupon code" />
+              <action-button>Apply</action-button>
           </div>
-          <div class="form-control">
-            <label>Country *</label>
-            <input type="text" required />
-          </div>
-          <div class="form-control">
-            <label>Street Address*</label>
-            <input
-              type="text"
-              placeholder="House number and Street number"
-              required
-              v-model="userAddress"
-            />
-          </div>
-          <div class="form-group">
-            <div class="form-control">
-              <label>Town / City *</label>
-              <input type="text" required />
-            </div>
-            <div class="form-control">
-              <label>State / County *</label>
-              <input type="text" required v-model="userState" />
-            </div>
-          </div>
-          <div class="form-control">
-            <label>Email Address *</label>
-            <input type="email" required />
-          </div>
-          <div class="form-control">
-            <label>Order notes (optional) </label>
-            <textarea
-              rows="10"
-              placeholder="Notes about your order, e.g. special notes for delivery"
-            ></textarea>
-          </div>
-        </div>
-        <aside>
-          <h4>Your Order</h4>
-          <table class="table table-summary">
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Total (NGN)</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr v-for="(item, index) in cart" :key="index">
-                <td>
-                  <span>{{ item.name }}</span> <br />
-                  Size: {{ item.size }} <br />
-                  Qty: {{ item.quantity }}
-                </td>
-                <td>
-                  {{ item.price.toFixed(2) }}
-                </td>
-              </tr>
-
-              <tr class="summary-subtotal">
-                <td>Subtotal (NGN):</td>
-                <td>{{ subtotal.toFixed(2) }}</td>
-              </tr>
-              <!-- End .summary-subtotal -->
-              <tr>
-                <td>Shipping:</td>
-                <td>Free shipping</td>
-              </tr>
-              <tr class="summary-total">
-                <td>Total (NGN):</td>
-                <td>
-                  {{ subtotal.toFixed(2) }}
-                </td>
-              </tr>
-              <!-- End .summary-total -->
-            </tbody>
-          </table>
-          <button class="submit" :class="{ payment: !noOrder }">
-            <template v-if="noOrder">
-              <span>Place Order</span>
-              <div class="icon">
-                <i class="fa fa-credit-card"></i>
+          <form class="billing-info" @submit.prevent="placeOrder">
+              <div class="form">
+                  <h4>Billing Address</h4>
+                  <div class="form-group">
+                      <div class="form-control">
+                          <label>First Name *</label>
+                          <input type="text" required />
+                      </div>
+                      <div class="form-control">
+                          <label>Last Name *</label>
+                          <input type="text" required />
+                      </div>
+                  </div>
+                  <div class="form-control">
+                      <label>Country *</label>
+                      <input type="text" required />
+                  </div>
+                  <div class="form-control">
+                      <label>Street Address*</label>
+                      <input
+                          type="text"
+                          placeholder="House number and Street number"
+                          required
+                          v-model="userAddress"
+                      />
+                  </div>
+                  <div class="form-group">
+                      <div class="form-control">
+                          <label>Town / City *</label>
+                          <input type="text" required />
+                      </div>
+                      <div class="form-control">
+                          <label>State / County *</label>
+                          <input type="text" required v-model="userState" />
+                      </div>
+                  </div>
+                  <div class="form-control">
+                      <label>Email Address *</label>
+                      <input type="email" required />
+                  </div>
+                  <div class="form-control">
+                      <label>Order notes (optional) </label>
+                      <textarea
+                          rows="10"
+                          placeholder="Notes about your order, e.g. special notes for delivery"
+                      ></textarea>
+                  </div>
               </div>
-            </template>
-            <button-preloader v-else />
-          </button>
-        </aside>
-      </form>
-    </div>
+              <aside>
+                  <h4>Your Order</h4>
+                  <table class="table table-summary">
+                      <thead>
+                          <tr>
+                              <th>Product</th>
+                              <th>Total (NGN)</th>
+                          </tr>
+                      </thead>
+
+                      <tbody>
+                          <tr v-for="(item, index) in cart" :key="index">
+                              <td>
+                                  <span>{{ item.name }}</span> <br />
+                                  Size: {{ item.size }} <br />
+                                  Qty: {{ item.quantity }}
+                              </td>
+                              <td>
+                                  {{ item.price.toFixed(2) }}
+                              </td>
+                          </tr>
+
+                          <tr class="summary-subtotal">
+                              <td>Subtotal (NGN):</td>
+                              <td>{{ subtotal.toFixed(2) }}</td>
+                          </tr>
+                          <!-- End .summary-subtotal -->
+                          <tr>
+                              <td>Shipping:</td>
+                              <td>Free shipping</td>
+                          </tr>
+                          <tr class="summary-total">
+                              <td>Total (NGN):</td>
+                              <td>
+                                  {{ subtotal.toFixed(2) }}
+                              </td>
+                          </tr>
+                          <!-- End .summary-total -->
+                      </tbody>
+                  </table>
+                  <button class="submit" :class="{ payment: !noOrder }">
+                      <template v-if="noOrder">
+                          <span>Place Order</span>
+                          <div class="icon">
+                              <i class="fa fa-credit-card"></i>
+                          </div>
+                      </template>
+                      <button-preloader v-else />
+                  </button>
+              </aside>
+          </form>
+      </div>
   </section>
   <success-modal
-    @close-modal="closeModal"
-    :price="price"
-    :email="this.user.email"
-    :reference="referenceMessage"
-    v-if="showModal"
+      @close-modal="closeModal"
+      :price="price"
+      :email="this.user.email"
+      :reference="referenceMessage"
+      v-if="showModal"
   />
   <main-footer />
 </template>
@@ -134,66 +134,65 @@ import axios from "axios";
 
 export default {
   data() {
-    return {
-      noOrder: true,
-      userState: "",
-      userAddress: "",
-      referenceMessage: "",
-      price: "",
-      showModal: false,
-      email: "",
-    };
+      return {
+          noOrder: true,
+          userState: "",
+          userAddress: "",
+          referenceMessage: "",
+          price: "",
+          showModal: false,
+          email: "",
+      };
   },
   components: {
-    MainHeader,
-    MainFooter,
-    ButtonPreloader,
-    SubHeader,
-    ActionButton,
-    SuccessModal,
+      MainHeader,
+      MainFooter,
+      ButtonPreloader,
+      SubHeader,
+      ActionButton,
+      SuccessModal,
   },
   computed: {
-    ...mapState(["user", "cart"]),
-    ...mapGetters(["subtotal"]),
+      ...mapState(["user", "cart"]),
+      ...mapGetters(["subtotal"]),
   },
   methods: {
-    async placeOrder() {
-      this.noOrder = false;
-      await axios
-        .post(
-          "https://dummyjson.com/products/add",
-          {
-            orders: this.cart.map((item) => {
-              return {
-                product_id: item.id,
-                quantity: item.quantity,
-                size: item.size,
-              };
-            }),
-            state: this.userState,
-            address: this.userAddress,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `${this.user.token}`,
-            },
-          }
-        )
-        .then((response) => {
-          this.referenceMessage = response.data.transaction_reference;
-          this.price = response.data.price;
-          this.noOrder = true;
-          this.showModal = true;
-        })
-        .catch((error) => {
-          this.noOrder = true;
-          console.log(error);
-        });
-    },
-    closeModal() {
-      this.showModal = false;
-    },
+      async placeOrder() {
+          this.noOrder = false;
+          await axios
+              .post(
+                  "https://dummyjson.com/carts",
+                  {
+                      orders: this.cart.map((item) => {
+                          return {
+                              product_id: item._id,
+                              quantity: item.quantity,
+                              size: item.size,
+                          };
+                      }),
+                      state: this.userState,
+                      address: this.userAddress,
+                  },
+                  {
+                      headers: {
+                          Authorization: `${this.user.token}`,
+                      },
+                  }
+              )
+              .then((response) => {
+                  this.referenceMessage = response.data.transaction_reference;
+                  this.price = response.data.price;
+                  this.noOrder = true;
+                  this.showModal = true;
+              })
+              .catch((error) => {
+                  this.noOrder = true;
+                  console.log(error);
+              });
+      },
+      closeModal() {
+          this.showModal = false;
+      },
   },
 };
 </script>
@@ -365,19 +364,19 @@ table tbody tr td span {
 @media (max-width: 790px) {
   .billing-info,
   .form-group {
-    flex-direction: column;
-    width: 100%;
+      flex-direction: column;
+      width: 100%;
   }
   aside,
   .form {
-    width: 100%;
+      width: 100%;
   }
   table tbody tr td span {
-    width: 100%;
-    white-space: break-spaces;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
+      width: 100%;
+      white-space: break-spaces;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
   }
 }
 </style>
