@@ -53,6 +53,7 @@
                         @click="addItemToCart"
                     />
                 </div>
+                <router-link to="/cart" class="green-button">Check Out</router-link>
                 <h4>Product Details</h4>
                 <p class="product-description">
                     {{ product.description }}
@@ -135,6 +136,20 @@ export default {
 
 .image-section {
     width: 47%;
+}
+.green-button {
+  background-color: #1a5d66;
+  color: white;
+  font-size: 1.7rem;
+  margin-right: 60%;
+  margin-top: 4%;
+  padding: 10px 20px;
+  border: 2px solid #1a5d66;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 .image-section,
