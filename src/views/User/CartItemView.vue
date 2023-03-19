@@ -31,7 +31,7 @@
             <div class="product-details">
                 <span>Home / {{ product.brand }}</span>
                 <h4>{{ product.title }}</h4>
-                <h4>{{ formattedPrice }}</h4>
+                <h4>NGN{{ product.price }}</h4>
                 <select v-model="size">
                     <option disabled>Select Size</option>
                     <option>Medium</option>
