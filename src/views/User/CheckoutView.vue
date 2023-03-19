@@ -164,20 +164,17 @@ export default {
                   "https://dummyjson.com/carts",
                   {
                       orders: this.cart.map((item) => {
+                        console.log(this.cart)
                           return {
                               product_id: item._id,
                               quantity: item.quantity,
                               size: item.size,
+
                           };
                       }),
                       state: this.userState,
                       address: this.userAddress,
                   },
-                  {
-                      headers: {
-                          Authorization: `${this.user.token}`,
-                      },
-                  }
               )
               .then((response) => {
                   this.referenceMessage = response.data.transaction_reference;
