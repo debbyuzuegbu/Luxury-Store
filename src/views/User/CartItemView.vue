@@ -111,9 +111,6 @@ export default {
     },
     computed: {
         ...mapState(["user", "cart"]),
-        formattedPrice() {
-            return this.product.currency + " " + this.product.price.toFixed(2);
-        },
     },
     async created() {
         let res = await axios.get(
