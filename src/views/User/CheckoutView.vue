@@ -164,7 +164,6 @@ export default {
                   "https://dummyjson.com/carts",
                   {
                       orders: this.cart.map((item) => {
-                        console.log(this.cart)
                           return {
                               product_id: item._id,
                               quantity: item.quantity,
@@ -177,6 +176,7 @@ export default {
                   },
               )
               .then((response) => {
+                console.log(response)
                   this.referenceMessage = response.data.transaction_reference;
                   this.price = response.data.price;
                   this.noOrder = true;
